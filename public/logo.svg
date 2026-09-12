@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 295" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Realistic Brushed Silver Metallic Linear Gradient -->
+    <linearGradient id="silverMetallic" x1="15%" y1="5%" x2="85%" y2="95%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="12%" stop-color="#EFF2F6" />
+      <stop offset="35%" stop-color="#CCD3DD" />
+      <stop offset="55%" stop-color="#E5E9EF" />
+      <stop offset="78%" stop-color="#B8C1CD" />
+      <stop offset="92%" stop-color="#D3DAE3" />
+      <stop offset="100%" stop-color="#9BA5B3" />
+    </linearGradient>
+
+    <!-- Chrome Edge Highlight Stroke -->
+    <linearGradient id="chromeHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#CBD3DC" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#8E99A8" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Bevel 3D Bottom Shadow -->
+    <linearGradient id="bevelShadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#555E6A" />
+      <stop offset="100%" stop-color="#363C44" />
+    </linearGradient>
+
+    <!-- Vibrant Lime Green Gradient -->
+    <linearGradient id="vibrantGreen" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#96F024" />
+      <stop offset="25%" stop-color="#80DD12" />
+      <stop offset="70%" stop-color="#5EBA06" />
+      <stop offset="100%" stop-color="#469302" />
+    </linearGradient>
+
+    <!-- Green Gloss Reflection -->
+    <linearGradient id="greenGloss" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C2FF6E" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#8CE81B" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#3D8500" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- Ambient Shadow for realistic depth on any background -->
+    <filter id="logoShadow" x="-15%" y="-15%" width="135%" height="140%" filterUnits="userSpaceOnUse">
+      <!-- Soft ambient shadow -->
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#000000" flood-opacity="0.22" />
+      <!-- Sharp contact shadow -->
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.14" />
+    </filter>
+
+    <filter id="greenGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#387702" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <g filter="url(#logoShadow)">
+    <!-- 3D Bevel Underside / Extrusion Depth -->
+    <path d="
+      M 87 17.5
+      L 315 17.5
+      L 146.5 225.5
+      L 272 225.5
+      A 10 10 0 0 1 282 235.5
+      L 282 267.5
+      A 10 10 0 0 1 272 277.5
+      L 63 277.5
+      C 40 277.5, 25 266.5, 38 253.5
+      L 182 75.5
+      L 40 75.5
+      Z
+    " fill="url(#bevelShadow)" opacity="0.55" />
+
+    <!-- Main Metallic 'Z' Body -->
+    <path d="
+      M 87 15
+      L 315 15
+      L 146.5 223
+      L 272 223
+      A 10 10 0 0 1 282 233
+      L 282 265
+      A 10 10 0 0 1 272 275
+      L 63 275
+      C 40 275, 25 264, 38 251
+      L 182 73
+      L 40 73
+      Z
+    " 
+    fill="url(#silverMetallic)" 
+    stroke="url(#chromeHighlight)" 
+    stroke-width="1.25" 
+    stroke-linejoin="round" />
+
+    <!-- Subtle Inner Metallic Sheen for Brushed Look -->
+    <path d="
+      M 92 18
+      L 305 18
+      L 290 35
+      L 115 35
+      Z
+    " fill="#FFFFFF" opacity="0.35" />
+
+    <!-- Green Accent Parallelogram -->
+    <g filter="url(#greenGlow)">
+      <!-- Green 3D Base -->
+      <path d="
+        M 225.2 153
+        L 297.2 153
+        Q 305.2 153, 302.2 160
+        L 262.9 202
+        Q 259.9 209, 251.9 209
+        L 179.9 209
+        Q 171.9 209, 174.9 202
+        L 214.2 160
+        Q 217.2 153, 225.2 153
+        Z
+      " 
+      fill="url(#vibrantGreen)" 
+      stroke="#B3FF54" 
+      stroke-width="1.2" 
+      stroke-opacity="0.8" />
+
+      <!-- Green Bevel Top Reflection -->
+      <path d="
+        M 226 155
+        L 295 155
+        Q 301 155, 298 160
+        L 275 180
+        L 205 180
+        Q 218 155, 226 155
+        Z
+      " fill="url(#greenGloss)" />
+    </g>
+  </g>
+</svg>

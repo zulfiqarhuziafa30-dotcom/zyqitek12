@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black: #09090B;
+  --color-offwhite: #F8F9FA;
+  --color-white: #FFFFFF;
+  --color-darkgray: #121214;
+  --color-muted: #94A3B8;
+  --color-emerald-accent: #10B981;
+  --color-teal-accent: #14B8A6;
+  --color-lime-accent: #84CC16;
+
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer base {
+  html, body {
+    background-color: #090a0d;
+    @apply font-sans text-white antialiased selection:bg-white selection:text-black min-h-screen;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-white;
+  }
+}
+
+/* Decent, sophisticated gradient utilities */
+.gradient-heading {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-100 to-zinc-400;
+}
+
+.gradient-accent {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-zinc-300 to-zinc-400;
+}
+
+.gradient-metallic {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-400;
+}
+
+.gradient-card-surface {
+  @apply bg-zinc-900/50 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+.gradient-card-dark {
+  @apply bg-zinc-950/70 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+.gradient-pill {
+  @apply bg-white/10 border border-white/15 text-zinc-200 backdrop-blur-md;
+}
+
+
+

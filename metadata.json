@@ -1,0 +1,8 @@
+{
+  "name": "ZYQITEK",
+  "description": "ZYQITEK provides web development, branding, and growth marketing — all your digital needs in one place.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

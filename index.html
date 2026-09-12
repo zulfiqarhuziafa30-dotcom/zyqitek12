@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        // Defensive fix for environments where window.fetch is a getter-only property
+        try {
+          var _rawFetch = window.fetch;
+          if (_rawFetch) {
+            var _curFetch = _rawFetch.bind(window);
+            Object.defineProperty(window, 'fetch', {
+              get: function() {
+                return _curFetch;
+              },
+              set: function(fn) {
+                _curFetch = fn;
+              },
+              configurable: true,
+              enumerable: true
+            });
+            if (typeof globalThis !== 'undefined' && globalThis !== window) {
+              try {
+                Object.defineProperty(globalThis, 'fetch', {
+                  get: function() { return _curFetch; },
+                  set: function(fn) { _curFetch = fn; },
+                  configurable: true,
+                  enumerable: true
+                });
+              } catch (_) {}
+            }
+          }
+        } catch (e) {
+          // Fallback if property is not configurable
+        }
+
+        // Global error suppressor for any rogue fetch getter assignments
+        window.addEventListener('error', function(event) {
+          if (event && event.message && event.message.includes('Cannot set property fetch')) {
+            event.preventDefault();
+            event.stopImmediatePropagation && event.stopImmediatePropagation();
+            return true;
+          }
+        });
+      })();
+    </script>
+    <title>ZYQITEK — IT Solutions in One Place</title>
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+    <link rel="manifest" href="/site.webmanifest?v=2" />
+    <meta name="theme-color" content="#09090b" />
+    <meta name="msapplication-TileColor" content="#09090b" />
+
+    <link rel="canonical" href="https://zyqitek.com/" />
+    <meta name="description" content="ZYQITEK provides web development, branding, and growth marketing — all your digital needs in one place." />
+    <meta property="og:title" content="ZYQITEK — IT Solutions in One Place" />
+    <meta property="og:description" content="ZYQITEK provides web development, branding, and growth marketing — all your digital needs in one place." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zyqitek.com/" />
+    <meta property="og:image" content="https://zyqitek.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ZYQITEK — IT Solutions in One Place" />
+    <meta property="og:site_name" content="ZYQITEK" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ZYQITEK — IT Solutions in One Place" />
+    <meta name="twitter:description" content="ZYQITEK provides web development, branding, and growth marketing — all your digital needs in one place." />
+    <meta name="twitter:image" content="https://zyqitek.com/og-image.jpg" />
+    <meta name="twitter:image:alt" content="ZYQITEK — IT Solutions in One Place" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="/studio-backdrop.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ZYQITEK",
+        "url": "https://zyqitek.com",
+        "logo": "https://zyqitek.com/logo.svg",
+        "image": "https://zyqitek.com/studio-backdrop.jpg",
+        "description": "ZYQITEK provides web development, branding, and growth marketing — all your digital needs in one place.",
+        "email": "zyqitek@gmail.com",
+        "telephone": "+3442897220",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Karachi",
+          "addressRegion": "Sindh",
+          "addressCountry": "PK"
+        },
+        "sameAs": [
+          "https://www.instagram.com/zyqitektechnologies/",
+          "https://www.facebook.com/people/Zyqitek-Technologies/61594383567788/",
+          "https://wa.me/923442897220"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

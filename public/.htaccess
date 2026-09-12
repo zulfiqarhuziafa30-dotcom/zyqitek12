@@ -1,0 +1,33 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Set proper MIME types for modern web assets
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType font/woff2 .woff2
+</IfModule>
+
+# Browser Caching for static assets (HTML is revalidated immediately)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
